@@ -69,7 +69,7 @@ typedef struct {
 	 */
 	const uint8_t *data;
 	/**
-	 * Font char kerning
+	 * Font character kerning (in pixels).
 	 */
 	const int8_t kerning;
 } Font_Info_t;
