@@ -188,6 +188,10 @@ struct menuDefinition displaySettingsMenu = {
     .menuItems = &displaySubMenuItems,
 };
 
+void showModeSettings() {
+	g.vapeModes[s.mode]->settings();
+}
+
 struct menuItem settingsMenuItems[] = {
     {
         .type = SELECT,
@@ -211,6 +215,15 @@ struct menuItem settingsMenuItems[] = {
         .populateCallback = &populateModes,
         .selectCallback = &updateMode,
     },
+    {
+        .type = SPACE,
+        .rows = 2,
+    },
+	{
+		.type = ACTION,
+		.label = "Mode Settings",
+		.actionCallback = &showModeSettings,
+	},
     {
         .type = SPACE,
         .rows = 2,
