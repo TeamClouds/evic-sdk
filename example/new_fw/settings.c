@@ -24,7 +24,6 @@
 #include <errno.h>
 #include <M451Series.h>
 #include <Display.h>
-#include <Font.h>
 #include <TimerUtils.h>
 #include <Button.h>
 #include <USB_VirtualCOM.h>
@@ -37,6 +36,7 @@
 #include "helper.h"
 #include "menu.h"
 #include "settings.h"
+#include "font/font_vaporware.h"
 
 void saveDefaultSettings();
 
@@ -111,16 +111,16 @@ void showInfo(void) {
     
     Display_Clear();
 
-    Display_PutText(0, 0, "FW Ver", FONT_DEJAVU_8PT);
+    Display_PutText(0, 0, "FW Ver", FONT_SMALL);
     siprintf(buff, "%s", "-0.01");
-    Display_PutText(10, 15, buff, FONT_DEJAVU_8PT);
+    Display_PutText(10, 15, buff, FONT_SMALL);
     
-    Display_PutText(0, 40, "HW Ver", FONT_DEJAVU_8PT);
+    Display_PutText(0, 40, "HW Ver", FONT_SMALL);
     siprintf(buff, "%d.%02d", hwVerMajor, hwVerMinor);
-    Display_PutText(10, 55, buff, FONT_DEJAVU_8PT);
+    Display_PutText(10, 55, buff, FONT_SMALL);
     
     Display_PutText(0, 80, "Display", FONT_DEJAVU_8PT);
-    Display_PutText(10, 95, Display_GetType() == DISPLAY_SSD1327 ? "1327" : "1306", FONT_DEJAVU_8PT);
+    Display_PutText(10, 95, Display_GetType() == DISPLAY_SSD1327 ? "1327" : "1306", FONT_SMALL);
 
     Display_Update();
 
@@ -179,7 +179,7 @@ struct menuItem displaySubMenuItems[] = {
 
 struct menuDefinition displaySettingsMenu = {
     .name = "Display Settings",
-    .font = FONT_DEJAVU_8PT,
+    .font = FONT_SMALL,
     .cursor = "*",
     .prev_sel = "<",
     .next_sel = ">",
@@ -247,7 +247,7 @@ struct menuItem settingsMenuItems[] = {
 
 struct menuDefinition settingsMenu = {
     .name = "Settings",
-    .font = FONT_DEJAVU_8PT,
+    .font = FONT_SMALL,
     .cursor = "*",
     .prev_sel = "<",
     .next_sel = ">",
