@@ -294,6 +294,5 @@ uint8_t *Display_GetFramebuffer() {
 }
 
 void Display_SetContrast(uint8_t contrast) {
-	Display_SSD_SendCommand(SSD_SET_CONTRAST_LEVEL);
-	Display_SSD_SendCommand(contrast);
+	Display_SSD_SetContrast(contrast);
 }
