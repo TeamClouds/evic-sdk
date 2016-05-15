@@ -181,7 +181,7 @@ uint8_t *Display_GetFramebuffer();
  * Sets the contrast
  * char is between 0 - 256
  */
-void Display_SetContrast(char *contrast);
+void Display_SetContrast(uint8_t contrast);
 
 #ifdef __cplusplus
 }

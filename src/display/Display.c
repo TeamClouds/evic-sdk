@@ -293,11 +293,7 @@ uint8_t *Display_GetFramebuffer() {
 	return Display_framebuf;
 }
 
-void Display_SetContrast(char *contrast) {
-	// Contrast is between 1 - 256
-	uint8_t Display_ContrastCommand[] = {
-	    SSD_SET_CONTRAST_LEVEL, *contrast,
-	};
-
-	Display_SSD_Write(0, Display_ContrastCommand, sizeof(Display_ContrastCommand));
+void Display_SetContrast(uint8_t contrast) {
+	Display_SSD_SendCommand(SSD_SET_CONTRAST_LEVEL);
+	Display_SSD_SendCommand(contrast);
 }
