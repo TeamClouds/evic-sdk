@@ -33,6 +33,7 @@
  */
 
 #include <string.h>
+#include <stdlib.h>
 #include <M451Series.h>
 #include <Display.h>
 #include <Display_SSD.h>
@@ -237,7 +238,7 @@ void Display_PutLine(int x0, int y0, int x1, int y1) {
 	  int dy = abs(y1-y0), sy = y0<y1 ? 1 : -1;
 	  int err = (dx>dy ? dx : -dy)/2, e2;
 
-	  uint8_t *buff[] = { 0xFF };
+	  uint8_t buff[] = { 0xFF };
 
 	  for(;;){
 		Display_PutPixels(x0, y0, buff, 1, 1);
@@ -295,7 +296,7 @@ uint8_t *Display_GetFramebuffer() {
 void Display_SetContrast(char *contrast) {
 	// Contrast is between 1 - 256
 	uint8_t Display_ContrastCommand[] = {
-	    SSD_SET_CONTRAST_LEVEL, contrast,
+	    SSD_SET_CONTRAST_LEVEL, *contrast,
 	};
 
 	Display_SSD_Write(0, Display_ContrastCommand, sizeof(Display_ContrastCommand));
