@@ -28,10 +28,6 @@ extern "C" {
 
 
 /**
- * No button mask
- */
-#define BUTTON_MASK_NONE  0x00
-/**
  * No button mask.
  */
 #define BUTTON_MASK_NONE  0x00
