@@ -96,6 +96,7 @@ LIBDIRS := -L$(ARMGCC)/arm-none-eabi/lib \
 	-L$(ARMGCC)/lib/gcc/arm-none-eabi/$(GCC_VERSION) \
 	-L$(EVICSDK)/lib \
 	-L$(EVICSDK)/linker
+endif
 
 CPUFLAGS := -mcpu=cortex-m4 -mthumb
 
